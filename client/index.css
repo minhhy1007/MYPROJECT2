@@ -75,22 +75,19 @@ body,
   width: 100%;
   max-width: 100%;
 }
-/* --- Nền gradient toàn trang --- */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #2a0f4a 0%, #1b0036 40%, #ff6b00 100%);
-  color: white; /* chữ mặc định trắng */
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: white;
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Đảm bảo các container con chiếm toàn bộ chiều cao */
 #root {
   min-height: 100vh;
 }
 
-/* Tuỳ chọn: làm mờ hoặc overlay nhẹ nếu cần */
 .overlay {
   background: rgba(0, 0, 0, 0.4);
 }
