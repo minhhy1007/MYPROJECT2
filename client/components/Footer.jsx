@@ -17,7 +17,7 @@ function Footer() {
           </a>{" "}
           |
           <a href="#" className="text-light ms-2">
-            Chính sách bảo mật
+            Chính sách bảo mật Lê Hữu Minh Hy
           </a>
         </p>
       </div>
