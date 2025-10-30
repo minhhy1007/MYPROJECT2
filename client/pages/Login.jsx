@@ -18,15 +18,14 @@ function Login() {
         background: "#0a0a0a",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between", // ✅ THAY ĐỔI: từ "center" thành "space-between"
-        padding: "20px 100px", // ✅ THAY ĐỔI: thêm padding ngang 100px
+        justifyContent: "space-between",
+        padding: "20px 100px",
         paddingTop: "80px",
       }}
     >
-      {/* ✅ THAY ĐỔI: Bỏ position: "fixed", thay bằng position: "relative" */}
       <div
         style={{
-          position: "relative", // ✅ THAY ĐỔI
+          position: "relative",
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: "20px",
@@ -321,10 +320,9 @@ function Login() {
         </form>
       </div>
 
-      {/* ✅ THAY ĐỔI: Bỏ position: "fixed", thay bằng position: "relative" */}
       <div
         style={{
-          position: "relative", // ✅ THAY ĐỔI
+          position: "relative",
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: "20px",
