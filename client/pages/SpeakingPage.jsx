@@ -69,7 +69,7 @@ function SpeakingPage() {
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
-            alt="ACEVocab"
+            alt="ACEENGLISH"
             height="40"
             style={{
               transition: "transform 0.3s ease",
@@ -87,7 +87,7 @@ function SpeakingPage() {
               textShadow: "0 0 12px rgba(0,217,255,0.6)",
             }}
           >
-            ACEVOCAB
+            ACEENGLISH
           </h5>
         </div>
 
@@ -182,7 +182,7 @@ function SpeakingPage() {
             textShadow: "0 0 15px rgba(0,217,255,0.6)",
           }}
         >
-          LUYỆN SPEAKING CÙNG ACEVOCAB
+          LUYỆN SPEAKING CÙNG ACEENGLISH
         </h2>
 
         {/* TOPICS */}
@@ -307,7 +307,7 @@ function SpeakingPage() {
           borderTop: "1px solid rgba(255,255,255,0.1)",
         }}
       >
-        © ACEVocab ver5.0.1
+        © ACEENGLISH ver5.0.1
       </footer>
     </div>
   );

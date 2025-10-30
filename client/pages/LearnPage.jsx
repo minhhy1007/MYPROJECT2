@@ -58,6 +58,7 @@ function LearnPage() {
         }}
       >
         {/* Logo */}
+
         <div
           style={{
             display: "flex",
@@ -65,7 +66,7 @@ function LearnPage() {
             gap: "12px",
             cursor: "pointer",
           }}
-          onClick={() => navigate("/study")}
+          onClick={() => navigate("/reviews")}
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
@@ -84,7 +85,7 @@ function LearnPage() {
               textShadow: "0 0 12px rgba(0,217,255,0.6)",
             }}
           >
-            ACEVOCAB
+            ACEENGLISH
           </h5>
         </div>
 

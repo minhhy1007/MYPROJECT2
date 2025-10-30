@@ -7,6 +7,7 @@ import StudyPage from "../pages/StudyPage";
 import LearnPage from "../pages/LearnPage";
 import NotebookPage from "../pages/NotebookPage";
 import SpeakingPage from "../pages/SpeakingPage";
+import Login from "../pages/Login";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path="/learn" element={<LearnPage />} />
         <Route path="/notebook" element={<NotebookPage />} />
         <Route path="/speaking" element={<SpeakingPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

@@ -70,7 +70,7 @@ function NotebookPage() {
               textShadow: "0 0 12px rgba(0,217,255,0.6)",
             }}
           >
-            ACEVOCAB
+            ACEENGLISH
           </h5>
         </div>
 
@@ -164,7 +164,7 @@ function NotebookPage() {
             textShadow: "0 0 15px rgba(0,217,255,0.6)",
           }}
         >
-          SỔ TAY ACEVOCAB
+          SỔ TAY ACEENGLISH
         </h2>
 
         {/* SEARCH BAR */}
@@ -299,7 +299,7 @@ function NotebookPage() {
           borderTop: "1px solid rgba(255,255,255,0.1)",
         }}
       >
-        © ACEVOCAB ver5.0.1
+        © ACEENGLISH ver5.0.1
       </footer>
     </div>
   );

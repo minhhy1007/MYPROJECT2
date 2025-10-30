@@ -67,7 +67,7 @@ function Header() {
         <NavLink label="Đánh giá" to="/reviews" />
         <NavLink label="Gói học" to="/pricing" />
         <Link
-          to="/signup"
+          to="/login" // Thay đổi từ "/signup" thành "/login"
           style={{
             background: "linear-gradient(135deg, #00d9ff 0%, #007bff 100%)",
             color: "white",
@@ -78,14 +78,7 @@ function Header() {
             boxShadow: "0 0 15px rgba(0,217,255,0.4)",
             transition: "all 0.3s ease",
           }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = "translateY(-3px)";
-            e.target.style.boxShadow = "0 0 25px rgba(0,217,255,0.7)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = "translateY(0)";
-            e.target.style.boxShadow = "0 0 15px rgba(0,217,255,0.4)";
-          }}
+          // ... rest of the props
         >
           Tham gia ngay
         </Link>
