@@ -6,7 +6,7 @@ function SpeakingPage() {
   const [activeNav, setActiveNav] = useState(3);
 
   const navItems = [
-    { label: "Ôn tập", path: "/StudyPage" },
+    { label: "Ôn tập", path: "/study" },
     { label: "Học từ mới", path: "/learn" },
     { label: "Sổ tay", path: "/notebook" },
     { label: "IELTS Speaking", path: "/speaking" },
@@ -32,40 +32,25 @@ function SpeakingPage() {
 
   return (
     <div
+      className="min-vh-100 d-flex flex-column text-white"
       style={{
         background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",
-        color: "white",
-        minHeight: "100vh",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        display: "flex",
-        flexDirection: "column",
       }}
     >
       {/* HEADER */}
       <header
+        className="fixed-top d-flex align-items-center justify-content-between px-4 py-2 shadow-lg"
         style={{
           background: "linear-gradient(135deg, #111 0%, #1c1c1c 100%)",
-          padding: "12px 32px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          boxShadow: "0 4px 25px rgba(0, 0, 0, 0.6)",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
-          position: "fixed",
-          width: "100%",
-          top: 0,
           zIndex: 1000,
         }}
       >
         {/* Logo */}
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            cursor: "pointer",
-          }}
+          className="d-flex align-items-center gap-2"
           onClick={() => navigate("/reviews")}
+          style={{ cursor: "pointer" }}
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
@@ -79,9 +64,8 @@ function SpeakingPage() {
             onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
           />
           <h5
+            className="m-0 fw-bold"
             style={{
-              margin: 0,
-              fontWeight: "bold",
               fontSize: "18px",
               color: "#00d9ff",
               textShadow: "0 0 12px rgba(0,217,255,0.6)",
@@ -92,7 +76,7 @@ function SpeakingPage() {
         </div>
 
         {/* NAV */}
-        <nav style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+        <nav className="d-flex gap-4 align-items-center">
           {navItems.map((item, index) => (
             <span
               key={index}
@@ -100,8 +84,8 @@ function SpeakingPage() {
                 setActiveNav(index);
                 navigate(item.path);
               }}
+              className="fw-semibold position-relative"
               style={{
-                fontWeight: "600",
                 fontSize: "15px",
                 color: index === activeNav ? "#00d9ff" : "#b0b0b0",
                 cursor: "pointer",
@@ -110,7 +94,6 @@ function SpeakingPage() {
                     ? "0 0 15px rgba(0,217,255,0.8)"
                     : "0 0 5px rgba(255,255,255,0.2)",
                 transition: "all 0.3s ease",
-                position: "relative",
               }}
               onMouseEnter={(e) => {
                 e.target.style.color = "#00d9ff";
@@ -129,8 +112,8 @@ function SpeakingPage() {
               {item.label}
               {index === activeNav && (
                 <span
+                  className="position-absolute"
                   style={{
-                    position: "absolute",
                     bottom: "-4px",
                     left: 0,
                     right: 0,
@@ -147,8 +130,8 @@ function SpeakingPage() {
 
         {/* Greeting */}
         <div
+          className="fw-bold"
           style={{
-            fontWeight: "bold",
             color: "#00d9ff",
             textShadow: "0 0 10px rgba(0,217,255,0.5)",
           }}
@@ -159,22 +142,18 @@ function SpeakingPage() {
 
       {/* MAIN */}
       <div
+        className="flex-grow-1 d-flex flex-column align-items-center px-3"
         style={{
-          flex: 1,
           paddingTop: "100px",
-          padding: "80px 20px 60px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          paddingBottom: "60px",
           background:
             "radial-gradient(circle at top, rgba(0,217,255,0.05), transparent 70%)",
         }}
       >
         <h2
+          className="fw-bold mb-4 text-center"
           style={{
             fontSize: "34px",
-            fontWeight: "bold",
-            marginBottom: "40px",
             background:
               "linear-gradient(90deg, #00d9ff, #38bdf8, #00d9ff, #0077ff)",
             WebkitBackgroundClip: "text",
@@ -187,27 +166,17 @@ function SpeakingPage() {
 
         {/* TOPICS */}
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "25px",
-            maxWidth: "850px",
-            width: "100%",
-          }}
+          className="d-flex flex-column gap-4 w-100"
+          style={{ maxWidth: "850px" }}
         >
           {speakingTopics.map((topic, i) => (
             <div
               key={i}
+              className="d-flex align-items-center gap-3 p-4 rounded-4 shadow"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
                 border: "2px solid rgba(0,217,255,0.4)",
-                borderRadius: "20px",
-                padding: "28px 40px",
-                display: "flex",
-                alignItems: "center",
-                gap: "25px",
-                boxShadow: "0 8px 25px rgba(0,217,255,0.2)",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
@@ -227,27 +196,26 @@ function SpeakingPage() {
               <img
                 src={topic.image}
                 alt={topic.title}
+                className="flex-shrink-0"
                 style={{
                   width: "70px",
                   filter: "drop-shadow(0 5px 15px rgba(0,217,255,0.5))",
                 }}
               />
-              <div style={{ flex: 1 }}>
+              <div className="flex-grow-1">
                 <h3
+                  className="m-0 fw-bold mb-1"
                   style={{
-                    margin: 0,
-                    fontWeight: "bold",
                     fontSize: "22px",
                     color: "#ffffff",
                     textShadow: "0 0 10px rgba(0,217,255,0.4)",
-                    marginBottom: "5px",
                   }}
                 >
                   {topic.title}
                 </h3>
                 <p
+                  className="m-0"
                   style={{
-                    margin: 0,
                     fontSize: "15px",
                     color: "rgba(255,255,255,0.6)",
                   }}
@@ -271,8 +239,8 @@ function SpeakingPage() {
 
       {/* FLOATING ICON */}
       <div
+        className="position-fixed"
         style={{
-          position: "fixed",
           bottom: "80px",
           right: "30px",
           animation: "float 3s ease-in-out infinite",
@@ -299,12 +267,11 @@ function SpeakingPage() {
 
       {/* FOOTER */}
       <footer
+        className="text-center py-2 px-3 border-top small"
         style={{
-          textAlign: "center",
-          padding: "10px 20px",
           color: "#808080",
           fontSize: "13px",
-          borderTop: "1px solid rgba(255,255,255,0.1)",
+          borderColor: "rgba(255,255,255,0.1)",
         }}
       >
         © ACEENGLISH ver5.0.1

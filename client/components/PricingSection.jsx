@@ -1,62 +1,83 @@
 import React from "react";
 
 function PricingSection() {
+  const styles = {
+    section: {
+      background: "#0a0a0a",
+    },
+    title: {
+      fontSize: "36px",
+      color: "white",
+    },
+    planCard: {
+      background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
+      borderRadius: "20px",
+      width: "340px",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      transition: "all 0.3s ease",
+      cursor: "pointer",
+    },
+    planTitle: {
+      fontSize: "22px",
+      color: "#00d9ff",
+    },
+    planPrice: {
+      fontSize: "36px",
+      color: "white",
+    },
+    planDesc: {
+      color: "#b0b0b0",
+      fontSize: "15px",
+    },
+    formContainer: {
+      background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
+      borderRadius: "20px",
+      maxWidth: "500px",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      transition: "all 0.3s ease",
+    },
+    formTitle: {
+      color: "#00d9ff",
+      fontSize: "22px",
+    },
+    input: {
+      borderRadius: "10px",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      background: "#121212",
+      color: "white",
+    },
+    submitButton: {
+      background: "linear-gradient(135deg, #00d9ff 0%, #764ba2 100%)",
+      borderRadius: "10px",
+      transition: "all 0.3s ease",
+    },
+  };
+
   return (
-    <section
-      style={{
-        padding: "80px 0",
-        background: "#0a0a0a",
-        color: "white",
-      }}
-    >
+    <section className="py-5 text-white" style={styles.section}>
       <div className="container text-center" style={{ maxWidth: "1200px" }}>
-        <h2
-          className="fw-bold mb-5"
-          style={{
-            fontSize: "36px",
-            color: "white",
-            marginBottom: "60px",
-          }}
-        >
+        <h2 className="fw-bold mb-5" style={styles.title}>
           Gói học ACEENGLISH Premium
         </h2>
 
         {/* Các gói học */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "30px",
-            justifyContent: "center",
-            marginBottom: "60px",
-          }}
-        >
+        <div className="d-flex flex-wrap gap-4 justify-content-center mb-5">
           {[
             {
               title: "Gói 1 năm",
               price: "749.000đ",
               desc: "Truy cập đầy đủ các khóa học trong 12 tháng.",
-              gradient: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
             },
             {
               title: "Gói 3 năm",
               price: "1.499.000đ",
               desc: "Ưu đãi lớn nhất – học không giới hạn trong 3 năm.",
-              gradient: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
             },
           ].map((plan, index) => (
             <div
               key={index}
-              style={{
-                background: plan.gradient,
-                borderRadius: "20px",
-                padding: "40px 30px",
-                width: "340px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                position: "relative",
-              }}
+              className="p-4 position-relative"
+              style={styles.planCard}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-10px)";
                 e.currentTarget.style.boxShadow =
@@ -69,47 +90,22 @@ function PricingSection() {
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
               }}
             >
-              <h5
-                style={{
-                  fontSize: "22px",
-                  fontWeight: "bold",
-                  color: "#00d9ff",
-                  marginBottom: "15px",
-                }}
-              >
+              <h5 className="fw-bold mb-3" style={styles.planTitle}>
                 {plan.title}
               </h5>
-              <p
-                style={{
-                  fontSize: "36px",
-                  fontWeight: "bold",
-                  color: "white",
-                  marginBottom: "15px",
-                }}
-              >
+              <p className="fw-bold mb-3" style={styles.planPrice}>
                 {plan.price}
               </p>
-              <p style={{ color: "#b0b0b0", fontSize: "15px" }}>{plan.desc}</p>
+              <p className="mb-0" style={styles.planDesc}>
+                {plan.desc}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Form đăng ký */}
-        <div
-          style={{
-            background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-            borderRadius: "20px",
-            padding: "40px",
-            maxWidth: "500px",
-            margin: "0 auto",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            transition: "all 0.3s ease",
-          }}
-        >
-          <h5
-            className="mb-3 fw-semibold"
-            style={{ color: "#00d9ff", fontSize: "22px" }}
-          >
+        <div className="p-4 mx-auto" style={styles.formContainer}>
+          <h5 className="mb-3 fw-semibold" style={styles.formTitle}>
             Đăng ký ngay
           </h5>
           <form>
@@ -117,41 +113,20 @@ function PricingSection() {
               type="email"
               placeholder="Email của bạn"
               required
-              style={{
-                width: "100%",
-                padding: "12px 15px",
-                marginBottom: "15px",
-                borderRadius: "10px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                background: "#121212",
-                color: "white",
-              }}
+              className="form-control mb-3 px-3 py-2"
+              style={styles.input}
             />
             <input
               type="tel"
               placeholder="Số điện thoại"
               required
-              style={{
-                width: "100%",
-                padding: "12px 15px",
-                marginBottom: "15px",
-                borderRadius: "10px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                background: "#121212",
-                color: "white",
-              }}
+              className="form-control mb-3 px-3 py-2"
+              style={styles.input}
             />
             <select
               required
-              style={{
-                width: "100%",
-                padding: "12px 15px",
-                marginBottom: "20px",
-                borderRadius: "10px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                background: "#121212",
-                color: "white",
-              }}
+              className="form-select mb-3 px-3 py-2"
+              style={styles.input}
             >
               <option value="">Chọn gói học</option>
               <option value="1n">Gói 1 năm - 749.000đ</option>
@@ -159,17 +134,8 @@ function PricingSection() {
             </select>
             <button
               type="submit"
-              style={{
-                width: "100%",
-                padding: "12px",
-                background: "linear-gradient(135deg, #00d9ff 0%, #764ba2 100%)",
-                color: "white",
-                fontWeight: "bold",
-                border: "none",
-                borderRadius: "10px",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
+              className="btn w-100 text-white fw-bold py-2 border-0"
+              style={styles.submitButton}
               onMouseEnter={(e) => {
                 e.target.style.opacity = "0.85";
                 e.target.style.transform = "scale(1.03)";
