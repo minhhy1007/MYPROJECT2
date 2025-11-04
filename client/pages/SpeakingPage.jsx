@@ -6,12 +6,12 @@ function SpeakingPage() {
   const [activeNav, setActiveNav] = useState(3);
 
   const navItems = [
-    { label: "Ôn tập", path: "/study" },
+    { label: "Ôn tập", path: "/StudyPage" },
     { label: "Học từ mới", path: "/learn" },
     { label: "Sổ tay", path: "/notebook" },
     { label: "IELTS Speaking", path: "/speaking" },
+    { label: "AceHub", path: "/hub" },
   ];
-
   const speakingTopics = [
     {
       title: "Luyện phát âm",

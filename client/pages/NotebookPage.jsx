@@ -11,8 +11,8 @@ function NotebookPage() {
     { label: "Học từ mới", path: "/learn" },
     { label: "Sổ tay", path: "/notebook" },
     { label: "IELTS Speaking", path: "/speaking" },
+    { label: "AceHub", path: "/hub" },
   ];
-
   const styles = {
     pageBackground: {
       background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",

@@ -9,8 +9,8 @@ function LearnPage() {
     { label: "Học từ mới", path: "/learn" },
     { label: "Sổ tay", path: "/notebook" },
     { label: "IELTS Speaking", path: "/speaking" },
+    { label: "AceHub", path: "/hub" },
   ];
-
   const courses = [
     {
       title: "Economics",
