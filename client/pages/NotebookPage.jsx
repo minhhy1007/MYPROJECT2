@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProfileMenu from "../components/ProfileMenu";
 
 function NotebookPage() {
   const navigate = useNavigate();
@@ -171,9 +172,8 @@ function NotebookPage() {
           ))}
         </nav>
 
-        <div className="fw-bold" style={styles.userGreeting}>
-          Hi Guest!
-        </div>
+        {/* User Greeting */}
+        <ProfileMenu />
       </header>
 
       {/* MAIN CONTENT */}

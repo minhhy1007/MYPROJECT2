@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProfileMenu from "../components/ProfileMenu";
 
 function SpeakingPage() {
   const navigate = useNavigate();
@@ -129,15 +130,7 @@ function SpeakingPage() {
         </nav>
 
         {/* Greeting */}
-        <div
-          className="fw-bold"
-          style={{
-            color: "#00d9ff",
-            textShadow: "0 0 10px rgba(0,217,255,0.5)",
-          }}
-        >
-          Hi Guest!
-        </div>
+        <ProfileMenu />
       </header>
 
       {/* MAIN */}

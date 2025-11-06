@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ProfileMenu from "../components/ProfileMenu";
 
 function AceHubPage() {
   const navigate = useNavigate();
@@ -289,7 +290,7 @@ function AceHubPage() {
           </nav>
 
           {/* User Greeting */}
-          <div style={styles.userGreeting}>Hi Guest!</div>
+          <ProfileMenu />
         </div>
       </header>
 

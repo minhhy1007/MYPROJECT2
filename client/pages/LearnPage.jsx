@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ProfileMenu from "../components/ProfileMenu";
 
 function LearnPage() {
   const navigate = useNavigate();
@@ -219,9 +220,7 @@ function LearnPage() {
         </nav>
 
         {/* User Greeting */}
-        <div className="fw-bold" style={styles.userGreeting}>
-          Hi Guest!
-        </div>
+        <ProfileMenu />
       </header>
 
       {/* Main Content */}
