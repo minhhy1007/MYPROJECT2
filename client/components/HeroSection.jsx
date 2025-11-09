@@ -43,7 +43,10 @@ function HeroSection() {
   };
 
   return (
-    <section className="py-5 text-white text-center" style={styles.heroSection}>
+    <section
+      className=" text-white text-center"
+      style={{ ...styles.heroSection, paddingTop: "5rem" }}
+    >
       <div className="container" style={{ maxWidth: "900px" }}>
         <h1 className="fw-bold mb-3" style={styles.heroTitle}>
           Ghi nhớ 1000 từ vựng trong 1 tháng 🎯

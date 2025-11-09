@@ -178,10 +178,10 @@ function NotebookPage() {
 
       {/* MAIN CONTENT */}
       <div
-        className="flex-grow-1 d-flex flex-column align-items-center py-5"
+        className="flex-grow-1 d-flex flex-column align-items-center"
         style={{
-          paddingTop: "120px",
-          paddingBottom: "60px",
+          paddingTop: "8rem",
+          paddingBottom: "3rem",
           ...styles.mainContent,
         }}
       >
