@@ -14,7 +14,6 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        {/* Route cho trang chủ */}
         <Route path="/" element={<HomePage />} />
         {/* Route cho trang giới thiệu (ví dụ) */}
         <Route path="/about" element={<AboutPage />} />

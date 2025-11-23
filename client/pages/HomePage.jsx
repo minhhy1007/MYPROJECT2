@@ -1,11 +1,11 @@
 // src/pages/HomePage.jsx
 import React, { useRef } from "react";
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import FeatureSection from "../components/FeatureSection";
-import ContentSection from "../components/ContentSection";
-import PricingSection from "../components/PricingSection";
-import Footer from "../components/Footer";
+import Header from "../components/review/Header";
+import HeroSection from "../components/review/HeroSection";
+import FeatureSection from "../components/review/FeatureSection";
+import ContentSection from "../components/review/ContentSection";
+import PricingSection from "../components/review/PricingSection";
+import Footer from "../components/review/Footer";
 
 function HomePage() {
   const pricingRef = useRef(null);
