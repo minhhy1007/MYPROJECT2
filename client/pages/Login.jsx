@@ -1,16 +1,43 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthService } from "../services/AuthService";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
-  const handleSubmit = (e) => {
+  const [isRegisterMode, setIsRegisterMode] = useState(false);
+  // Hàm xử lý Đăng nhập
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    try {
+      const result = await AuthService.login(email, password);
+
+      AuthService.saveToken(result.token);
+      alert("Đăng nhập thành công! Chào mừng trở lại.");
+      navigate("/AceHubPage"); // Chuyển hướng tới trang chính
+    } catch (error) {
+      alert("Lỗi Đăng nhập: " + error.message);
+    }
   };
 
+  // Hàm xử lý Đăng ký
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await AuthService.register(email, password);
+      alert(result.message);
+      // Sau khi đăng ký thành công, tự động chuyển về form Đăng nhập
+      setIsRegisterMode(false);
+    } catch (error) {
+      alert("Lỗi Đăng ký: " + error.message);
+    }
+  };
+
+  // Quyết định hàm submit dựa trên mode hiện tại
+  const currentSubmitHandler = isRegisterMode
+    ? handleRegisterSubmit
+    : handleLoginSubmit;
   return (
     <div
       style={{

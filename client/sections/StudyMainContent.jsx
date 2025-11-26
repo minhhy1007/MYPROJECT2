@@ -10,7 +10,9 @@ function StudyMainContent() {
     mascotIcon: {
       filter: "drop-shadow(0 10px 25px rgba(0, 217, 255, 0.3))",
       animation: "float 3s ease-in-out infinite",
+      width: "140px",
     },
+
     highlightText: {
       color: "#00d9ff",
       textShadow: "0 0 10px rgba(0, 217, 255, 0.5)",
@@ -61,8 +63,22 @@ function StudyMainContent() {
         Học từ mới
       </button>
       <style>
-        {/* Keyframes cho hiệu ứng float của mascot */}
-        {`@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }`}
+        {/* Responsive Styles cho Mobile/iPad */}
+        {`
+                @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+                
+                @media (max-width: 768px) {
+                    .study-mascot {
+                        width: 100px !important; /* Giảm kích thước Mascot trên mobile */
+                        margin-bottom: 20px !important;
+                    }
+                    .study-text {
+                        font-size: 18px !important; /* Giảm cỡ chữ thông báo */
+                        padding: 0 15px;
+                        text-align: center;
+                    }
+                }
+                `}
       </style>
     </div>
   );

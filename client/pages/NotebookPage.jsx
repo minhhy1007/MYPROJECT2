@@ -45,6 +45,22 @@ function NotebookPage() {
       </div>
 
       <AppFooter />
+      {/* Global Media Queries cho trang */}
+      <style>{`
+                @media (max-width: 768px) {
+                    /* Giảm padding trên mobile */
+                    .notebook-main-content {
+                        padding-top: 5rem !important;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                    }
+                    /* Giảm cỡ chữ tiêu đề */
+                    .notebook-main-content h2 {
+                        font-size: 28px !important;
+                        margin-bottom: 3rem !important;
+                    }
+                }
+            `}</style>
     </div>
   );
 }
