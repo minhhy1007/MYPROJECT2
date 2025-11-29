@@ -24,6 +24,7 @@ const AppRouter = () => {
         <Route path="/speaking" element={<SpeakingPage />} />
         <Route path="/hub" element={<AceHubPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Login />} />
       </Routes>
     </Router>
   );

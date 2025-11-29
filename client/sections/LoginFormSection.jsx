@@ -1,9 +1,11 @@
 // ../sections/LoginFormSection.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom"; // Thêm useLocation
 import { loginStyles } from "../hooks/useLoginStyles";
+import { AuthService } from "../services/AuthService";
 
 function EyeIcon({ show }) {
+  // Logic hiển thị Icon mắt đã được giữ nguyên
   return (
     <svg
       width="20"
@@ -32,10 +34,62 @@ function LoginFormSection() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const location = useLocation(); // Sử dụng useLocation để lấy đường dẫn hiện tại
+
+  // XÁC ĐỊNH LOẠI FORM: LOGIN HAY REGISTER
+  const isRegisterPage = location.pathname === "/signup";
+
+  // DỮ LIỆU ĐỘNG DỰA TRÊN LOẠI FORM
+  const title = isRegisterPage ? "Create Account" : "Welcome Back";
+  const subtitle = isRegisterPage
+    ? "Join ACEENGLISH to start learning."
+    : "ACEENGLISH will enhance your experience";
+  const buttonText = isRegisterPage ? "Sign Up" : "Login";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      let result;
+
+      // GỌI API ĐĂNG KÝ HOẶC ĐĂNG NHẬP
+      if (isRegisterPage) {
+        result = await AuthService.register(email, password);
+      } else {
+        result = await AuthService.login(email, password);
+      }
+
+      if (result.success) {
+        if (isRegisterPage) {
+          // Đăng ký thành công: Thông báo và chuyển hướng về trang Login
+          alert(result.message || "Đăng ký thành công! Vui lòng đăng nhập.");
+          navigate("/login");
+        } else {
+          // Đăng nhập thành công: Lưu Token và chuyển hướng
+          AuthService.saveToken(result.token);
+          alert("Bạn đã đăng nhập thành công");
+          navigate("/hub");
+        }
+      } else {
+        // Xử lý lỗi trả về từ server
+        setError(
+          result.message ||
+            (isRegisterPage ? "Đăng ký thất bại." : "Đăng nhập thất bại.")
+        );
+      }
+    } catch (apiError) {
+      // Xử lý lỗi mạng/kết nối
+      setError("Không thể kết nối đến máy chủ. Vui lòng thử lại sau.");
+      console.error("Lỗi API:", apiError);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleFocus = (e) => {
@@ -64,7 +118,7 @@ function LoginFormSection() {
         e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
       }}
     >
-      {/* Icon & Heading */}
+      {/* Icon & Heading (Giữ nguyên) */}
       <div
         style={{
           width: "80px",
@@ -100,7 +154,7 @@ function LoginFormSection() {
           letterSpacing: "-0.5px",
         }}
       >
-        Welcome Back
+        {title} {/* TIÊU ĐỀ ĐỘNG */}
       </h1>
       <p
         style={{
@@ -110,12 +164,28 @@ function LoginFormSection() {
           marginBottom: "40px",
         }}
       >
-        ACEENGLISH will enhance your experience
+        {subtitle} {/* PHỤ ĐỀ ĐỘNG */}
       </p>
+
+      {/* HIỂN THỊ THÔNG BÁO LỖI (Giữ nguyên) */}
+      {error && (
+        <div
+          style={{
+            color: "#ef4444",
+            background: "rgba(239, 68, 68, 0.1)",
+            padding: "12px",
+            borderRadius: "8px",
+            marginBottom: "20px",
+            textAlign: "center",
+          }}
+        >
+          {error}
+        </div>
+      )}
 
       {/* Form */}
       <form onSubmit={handleSubmit}>
-        {/* Email Input */}
+        {/* Email Input (Giữ nguyên) */}
         <div style={{ marginBottom: "24px" }}>
           <label
             style={{
@@ -139,7 +209,8 @@ function LoginFormSection() {
             onBlur={handleBlur}
           />
         </div>
-        {/* Password Input */}
+
+        {/* Password Input (Giữ nguyên) */}
         <div style={{ marginBottom: "32px" }}>
           <label
             style={{
@@ -185,10 +256,12 @@ function LoginFormSection() {
             </button>
           </div>
         </div>
-        {/* Login Button */}
+
+        {/* Login/Sign Up Button (Cập nhật text) */}
         <button
           type="submit"
           style={loginStyles.submitButton}
+          disabled={isLoading} // Vô hiệu hóa khi đang loading
           onMouseEnter={(e) => {
             e.target.style.opacity = "0.85";
             e.target.style.transform = "scale(1.03)";
@@ -198,13 +271,16 @@ function LoginFormSection() {
             e.target.style.transform = "scale(1)";
           }}
         >
-          Login
+          {isLoading ? "Loading..." : buttonText} {/* TEXT NÚT ĐỘNG */}
         </button>
-        {/* Sign Up Link */}
+
+        {/* Sign Up/Login Link (Cập nhật logic chuyển hướng) */}
         <p style={{ textAlign: "center", color: "#b0b0b0", fontSize: "15px" }}>
-          Don't have any account?{" "}
+          {isRegisterPage
+            ? "Already have an account? "
+            : "Don't have any account? "}
           <Link
-            to="/signup"
+            to={isRegisterPage ? "/login" : "/signup"} // Chuyển hướng ngược lại
             style={{
               color: "#00d9ff",
               textDecoration: "none",
@@ -220,7 +296,7 @@ function LoginFormSection() {
               e.target.style.textShadow = "none";
             }}
           >
-            Sign Up
+            {isRegisterPage ? "Login" : "Sign Up"}
           </Link>
         </p>
       </form>
