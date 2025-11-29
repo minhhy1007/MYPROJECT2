@@ -1,16 +1,16 @@
 // SpeakingPage.jsx
 import React, { useState } from "react";
-// Import Shared Components
+
 import AppHeader from "../components/Shared/AppHeader";
 import AppFooter from "../components/Shared/AppFooter";
 import FloatingIcon from "../components/Shared/FloatingIcon";
-// Import Local Section
+
 import SpeakingTopicsList from "../sections/SpeakingTopicsList";
-// Import Shared Hook
+
 import { sharedStyles } from "../hooks/useSharedStyles";
 
 function SpeakingPage() {
-  const [activeNav, setActiveNav] = useState(3); // Index 3: IELTS Speaking
+  const [activeNav, setActiveNav] = useState(3);
 
   return (
     <div
@@ -24,11 +24,11 @@ function SpeakingPage() {
         style={{
           paddingTop: "100px",
           paddingBottom: "60px",
-          marginTop: "70px", // Offset cho fixed header
+          marginTop: "70px",
           ...sharedStyles.mainContent,
         }}
       >
-        {/* Page Title */}
+        {}
         <h2 className="fw-bold mb-4 text-center" style={sharedStyles.pageTitle}>
           LUYỆN SPEAKING CÙNG ACEENGLISH
         </h2>
@@ -42,4 +42,4 @@ function SpeakingPage() {
   );
 }
 
-export default SpeakingPage; // ~38 dòng
+export default SpeakingPage;
