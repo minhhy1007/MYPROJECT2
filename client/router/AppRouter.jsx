@@ -5,6 +5,7 @@ import AboutPage from "../pages/AboutPage";
 import ReviewsPage from "../pages/ReviewsPage";
 import StudyPage from "../pages/StudyPage";
 import LearnPage from "../pages/LearnPage";
+import LevelSelectionPage from "../pages/LevelSelectionPage";
 import NotebookPage from "../pages/NotebookPage";
 import SpeakingPage from "../pages/SpeakingPage";
 import AceHubPage from "../pages/AceHubPage";
@@ -19,6 +20,7 @@ const AppRouter = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/StudyPage" element={<StudyPage />} />
+        <Route path="/level-selection" element={<LevelSelectionPage />} />
         <Route path="/learn" element={<LearnPage />} />
         <Route path="/notebook" element={<NotebookPage />} />
         <Route path="/speaking" element={<SpeakingPage />} />
@@ -31,3 +33,4 @@ const AppRouter = () => {
 };
 
 export default AppRouter;
+
